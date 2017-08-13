@@ -111,11 +111,6 @@ describe('Install OS Job', function () {
         expect(job.profile).to.equal('testprofile');
     });
 
-    it("should generate correct password", function() {
-        expect(job.options.rootEncryptedPassword).to.match(/^\$6\$*\$*/);
-        expect(job.options.users[0].encryptedPassword).to.match(/^\$6\$*\$*/);
-    });
-
     it("should use own progressMilestones", function() {
         var taskId = uuid.v4();
         var myjob = new InstallOsJob(
